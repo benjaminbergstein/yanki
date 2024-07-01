@@ -9,6 +9,7 @@ type ParamsType = {
   term: string;
 };
 export default async function Home({ params }: { params: ParamsType }) {
+  console.log({ params });
   const card = await api.card.create(params);
 
   return (
