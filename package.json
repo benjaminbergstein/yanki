@@ -10,6 +10,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@google-cloud/firestore": "^7.9.0",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@tanstack/react-query": "^5.39.0",
     "@trpc/client": "next",
