@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { cache } from "react";
 import { api } from "~/trpc/server";
 
 export const maxDuration = 60;
@@ -9,12 +10,16 @@ type ParamsType = {
   level: string;
 };
 
-export default async function Home({ params }: { params: ParamsType }) {
-  const categories = await api.card.getCategories({
+const getCategoriesCached = cache(async (params: ParamsType) => {
+  return api.card.getCategories({
     fluentLanguage: params.fluentLanguage,
     learningLanguage: params.learningLanguage,
     level: params.level,
   });
+});
+
+export default async function Home({ params }: { params: ParamsType }) {
+  const categories = await getCategoriesCached(params);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">

@@ -18,3 +18,5 @@ export default async function Home({ params }: { params: ParamsType }) {
     </main>
   );
 }
+
+export const revalidate = 600;
