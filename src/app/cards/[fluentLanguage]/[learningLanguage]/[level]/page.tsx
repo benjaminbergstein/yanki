@@ -1,6 +1,7 @@
 import Link from "next/link";
-import Card from "~/app/_components/Card";
 import { api } from "~/trpc/server";
+
+export const maxDuration = 60;
 
 type ParamsType = {
   fluentLanguage: string;
