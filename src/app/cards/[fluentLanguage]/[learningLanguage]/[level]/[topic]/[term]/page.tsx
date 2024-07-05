@@ -13,7 +13,7 @@ export default async function Home({ params }: { params: ParamsType }) {
   const card = await api.card.create(params);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] px-[25vw] text-white">
       <Card {...card} />
     </main>
   );

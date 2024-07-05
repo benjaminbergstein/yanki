@@ -264,16 +264,16 @@ export default async function Home({
   }
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
+    <main className="flex min-h-screen flex-col items-center justify-center gap-3 bg-gradient-to-b from-[#2e026d] to-[#15162c] text-white">
       {!fluentLanguage && (
         <>
           <div className="text-2xl">What language do you speak?</div>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex w-full flex-col flex-wrap gap-4 sm:flex-row">
             {supportedLanguages.map((language) => (
               <Link
                 key={language.code}
                 href={`?fluentLanguage=${language.code}&learningLanguage=${searchParams.learningLanguage}`}
-                className="flex h-[15vw] w-[15vw] items-center justify-center rounded-xl bg-black/20 text-2xl"
+                className="flex w-full items-center justify-center rounded-xl bg-black/20 py-3 text-2xl sm:h-[15vw] sm:w-[15vw] sm:py-0"
               >
                 {language.name}
               </Link>
@@ -284,14 +284,14 @@ export default async function Home({
       {!learningLanguage && (
         <>
           <div className="text-2xl">What language do you want to learn?</div>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex w-full flex-col flex-wrap gap-4 sm:flex-row">
             {supportedLanguages.map(
               (language) =>
                 language.code !== searchParams.fluentLanguage && (
                   <Link
                     key={language.code}
                     href={`?learningLanguage=${language.code}&fluentLanguage=${searchParams.fluentLanguage}`}
-                    className="flex h-[15vw] w-[15vw] items-center justify-center rounded-xl bg-black/20 text-2xl"
+                    className="flex w-full items-center justify-center rounded-xl bg-black/20 py-3 text-2xl sm:h-[15vw] sm:w-[15vw] sm:py-0"
                   >
                     {language.name}
                   </Link>
@@ -305,12 +305,12 @@ export default async function Home({
           <div className="text-2xl">
             What level are you currently in the language you want to learn?
           </div>
-          <div className="flex flex-wrap gap-4">
+          <div className="flex w-full flex-col flex-wrap gap-4 sm:flex-row">
             {levels.map((level) => (
               <Link
                 key={level.code}
                 href={`?learningLanguage=${searchParams.learningLanguage}&fluentLanguage=${searchParams.fluentLanguage}&level=${level.code}`}
-                className="flex h-[15vw] w-[15vw] items-center justify-center rounded-xl bg-black/20 text-2xl"
+                className="flex items-center justify-center rounded-xl bg-black/20 text-2xl sm:h-[15vw] sm:w-[15vw]"
               >
                 {level.name}
               </Link>

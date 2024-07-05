@@ -20,7 +20,7 @@ export default function Card(props: Card) {
 
   return (
     <div className="flex flex-col gap-3">
-      <div className="relative max-w-[600px] rounded-xl bg-black/40 p-10">
+      <div className="relative rounded-xl bg-black/40 p-10">
         <div className="text-[4vw] font-extrabold">{frontText}</div>
         {frontSentence.split(" ").map((token: string) => {
           const parts = token.split(/ /);
@@ -46,7 +46,7 @@ export default function Card(props: Card) {
         {isFront ? "Reveal" : "Hide"}
       </button>
       {!isFront && (
-        <div className="max-w-[600px] rounded-xl bg-black/40 p-10">
+        <div className="rounded-xl bg-black/40 p-10">
           <div className="text-[4vw] font-extrabold">{backText}</div>
           <div className="text-[2vw] font-light">{backSentence}</div>
         </div>
